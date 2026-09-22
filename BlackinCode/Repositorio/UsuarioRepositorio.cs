@@ -3,7 +3,7 @@ using BlackinCode.Models;
 using BlackinCode.Interfaces;
 using BCrypt;
 
-namespace ProjetoCarros.Repositorio
+namespace BlackinCode.Repositorio
 {
     public class UsuarioRepositorio : IUsuarioRepositorio
     {
