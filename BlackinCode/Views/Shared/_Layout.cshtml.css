@@ -46,3 +46,15 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+.dropdown-item {
+    color: #fff;
+}
+
+    .dropdown-item:hover, .dropdown-item:focus {
+        color: #000;
+        background-color: #fff;
+    }
+.dropdown-divider {
+    border-top-color: #fff;
+    opacity: 0.5;
+}
