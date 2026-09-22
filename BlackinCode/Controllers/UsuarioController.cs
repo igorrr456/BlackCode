@@ -43,6 +43,17 @@ namespace BlackinCode.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult CriarConta() => View();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CriarConta(Usuario model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            _usuarioRepositorio.CriarConta(model);
+            return RedirectToAction("Logar");
+        }
+
         public async Task<IActionResult> Sair()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
