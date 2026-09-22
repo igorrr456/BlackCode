@@ -1,5 +1,8 @@
-var builder = WebApplication.CreateBuilder(args);
+using BlackinCode.Interfaces;
+using BlackinCode.Repositorio;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
