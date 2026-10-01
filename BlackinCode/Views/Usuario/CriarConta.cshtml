@@ -1,1 +1,38 @@
-﻿
+﻿@model BlackinCode.Models.Usuario
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+}
+
+
+<div class="login-container">
+    <h1 class="login-title">Criar Conta</h1>
+
+    <form asp-action="CriarConta" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" asp-for="Nome" placeholder="Nome" required>
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Endereço de e-mail</label>
+            <input type="email" class="form-control" asp-for="Email" placeholder="Email" required>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Senha</label>
+            <input type="password" class="form-control" asp-for="Senha" placeholder="Senha" required>
+            <span asp-validation-for="Senha" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-login w-100">Criar Conta</button>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
