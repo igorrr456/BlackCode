@@ -23,14 +23,14 @@
                     </a>
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                         <li><a asp-action="Index" asp-controller="Home" class="nav-link px-2 text-white">Home</a></li>
-                        <li><a href="" class="nav-link px-2 text-white">Serviços</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Projetos</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Sobre</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Contato</a></li>
+                        <li><a asp-controller="Usuario" asp-action="Serviços" class="nav-link px-2 text-white">Serviços</a></li>
+                        <li><a asp-controller="Usuario" asp-action="Projetos" class="nav-link px-2 text-white">Projetos</a></li>
+                        <li><a asp-controller="Usuario" asp-action="Sobre" class="nav-link px-2 text-white">Sobre</a></li>
+                        <li><a asp-controller="Usuario" asp-action="Contato" class="nav-link px-2 text-white">Contato</a></li>
                     </ul>
                     <div class="text-end d-flex align-items-center">
-                        <a href="usuario/Logar" class="btn btn-outline-light me-2">Entrar</a>
-                        <a href="usuario/CriarConta" class="btn btn-light text-dark fw-bold me-2">Inscreva-se</a>
+                        <a asp-controller="Usuario" asp-action="Logar" class="btn btn-outline-light me-2">Entrar</a>
+                        <a asp-controller="Usuario" asp-action="CriarConta" class="btn btn-light text-dark fw-bold me-2">Inscreva-se</a>
                         <div class="dropdown">
                             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="~/Images/Icone.png" alt="perfil" width="32" height="32" class="rounded-circle">
