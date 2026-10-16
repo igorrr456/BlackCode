@@ -41,8 +41,8 @@ body {
 
 .hero-glow {
     color: #ffffff;
-    background-color: #010409; 
-    background-image: radial-gradient(80% 50% at 50% 50%, rgba(88, 96, 255, .42), transparent 72%);
+    background-color: #0d1117;
+    background-image: radial-gradient(80% 50% at 50% 50%, rgba(47, 129, 247, .35), transparent 72%);
 }
 
 
