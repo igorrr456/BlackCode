@@ -22,13 +22,13 @@
                     <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                         <img src="~/Images/Logobc.png" alt="Logo" style="height: 48px;">
                     </a>
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a asp-action="Index" asp-controller="Home" class="nav-link px-2 text-white">Home</a></li>
-                        <li><a asp-controller="Usuario" asp-action="Serviços" class="nav-link px-2 text-white">Serviços</a></li>
-                        <li><a asp-controller="Usuario" asp-action="Projetos" class="nav-link px-2 text-white">Projetos</a></li>
-                        <li><a asp-controller="Usuario" asp-action="Sobre" class="nav-link px-2 text-white">Sobre</a></li>
-                        <li><a asp-controller="Usuario" asp-action="Contato" class="nav-link px-2 text-white">Contato</a></li>
-                    </ul>
+                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 nav-gradient">
+                                    <li><a asp-action="Index" asp-controller="Home" class="nav-link px-2">Home</a></li>
+                                    <li><a asp-controller="Servicos" asp-action="Servicos" class="nav-link px-2">Serviços</a></li>
+                                    <li><a asp-controller="Projetos" asp-action="Projetos" class="nav-link px-2">Projetos</a></li>
+                                    <li><a asp-controller="Sobre" asp-action="Sobre" class="nav-link px-2">Sobre</a></li>
+                                    <li><a asp-controller="Contato" asp-action="Contato" class="nav-link px-2">Contato</a></li>
+                               </ul>
                     <div class="text-end d-flex align-items-center">
                         @if (User.Identity != null && User.Identity.IsAuthenticated)
                         {
