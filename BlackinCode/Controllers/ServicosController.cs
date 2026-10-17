@@ -4,7 +4,7 @@ namespace BlackinCode.Controllers
 {
     public class ServicosController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Servicos()
         {
             return View();
         }
