@@ -92,4 +92,12 @@ body {
         transform: translateY(-2px);
         filter: brightness(1.15);
     }
- 
+.header-transparente {
+    background: rgba(13, 17, 23, .35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-glow {
+    padding-top: 80px;
+}

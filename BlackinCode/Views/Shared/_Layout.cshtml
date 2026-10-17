@@ -15,9 +15,10 @@
         @RenderSection("Styles", required: false)
     </head>
     <body>
-        <header class="p-3" style="background-color: #000000;">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-dark fixed-top header-transparente" data-bs-theme="dark">
             <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start w-100">
                     <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                         <img src="~/Images/Logobc.png" alt="Logo" style="height: 48px;">
                     </a>
@@ -53,6 +54,7 @@
                     </div>
                 </div>
             </div>
+            </nav>
         </header>
         <div class="container">
             <main role="main" class="pb-3">
