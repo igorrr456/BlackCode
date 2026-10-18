@@ -4,7 +4,7 @@ namespace BlackinCode.Controllers
 {
     public class ProjetosController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Projetos()
         {
             return View();
         }
