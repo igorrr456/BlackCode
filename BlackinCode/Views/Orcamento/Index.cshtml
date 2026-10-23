@@ -1,171 +1,37 @@
-﻿@model BlackinCode.Models.Orcamento;
+@model IReadOnlyList<BlackinCode.Models.EtapaOrcamento>
 
 @{
-    ViewData["Title"] = "Serviços | Black in Code";
+    ViewData["Title"] = "Orçamento | Black in Code";
+
+    // Troque pelo WhatsApp da empresa: código do país + DDD + número, só dígitos.
+    var whatsapp = "5511999999999";
 }
 
 @section Styles {
-    <style>
-        .servicos-wrap {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .servicos-linha-topo {
-            width: 320px;
-            max-width: 60%;
-            height: 2px;
-            background: #2f81f7;
-            margin: 0 auto 2.5rem;
-        }
-
-        /* o card agora é um <button>, então zeramos o estilo padrão dele */
-        .servico-card {
-            display: block;
-            width: 100%;
-            background: none;
-            border: 0;
-            padding: 0;
-            font: inherit;
-            color: #fff;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-            .servico-card:focus-visible {
-                outline: 2px solid #2f81f7;
-                outline-offset: 8px;
-                border-radius: 1rem;
-            }
-
-        .servico-circle {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            margin: 0 auto 1.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(47, 129, 247, .10);
-            border: 1px solid rgba(47, 129, 247, .25);
-            transition: transform .3s ease, background .3s ease, border-color .3s ease;
-        }
-
-            .servico-circle svg {
-                width: 72px;
-                height: 72px;
-                stroke: #2f81f7;
-                fill: none;
-                stroke-width: 1.6;
-                stroke-linecap: round;
-                stroke-linejoin: round;
-            }
-
-        .servico-card:hover .servico-circle {
-            transform: translateY(-6px);
-            background: rgba(47, 129, 247, .20);
-            border-color: #2f81f7;
-        }
-
-        .servico-card:active .servico-circle {
-            transform: translateY(-2px) scale(.97);
-        }
-
-        .servico-linha {
-            width: 40px;
-            height: 2px;
-            background: #2f81f7;
-            margin: .9rem auto;
-        }
-    </style>
+    <link rel="stylesheet" href="~/css/orcamento.css" asp-append-version="true" />
 }
 
-<div class="hero-glow text-white vw-100 position-relative start-50 translate-middle-x" data-bs-theme="dark">
-    <section class="container text-center servicos-wrap py-5">
-        <div class="w-100">
+<div class="orc" id="orc" data-bs-theme="dark"
+     data-whatsapp="@whatsapp"
+     data-calcular-url="@Url.Action("Calcular", "Orcamento")">
 
-            <div class="servicos-linha-topo"></div>
-
-            <h1 class="display-5 fw-bold mb-5 mx-auto" style="max-width:820px">
-                Em qual dos nossos serviços você está interessado?
-            </h1>
-
-            <form asp-action="AdicionarOrcamento" method="post">
-                <input type="hidden" name="id" value="@Model.Site" />
-
-                <div class="row g-5 justify-content-center">
-
-                    <div class="col-md-4">
-                        <button type="submit" name="tipo" value="institucional" class="servico-card">
-                            <span class="servico-circle">
-                                <svg viewBox="0 0 64 64" aria-hidden="true">
-                                    <rect x="6" y="10" width="52" height="44" rx="4" />
-                                    <line x1="6" y1="22" x2="58" y2="22" />
-                                    <circle cx="13" cy="16" r="1" />
-                                    <circle cx="19" cy="16" r="1" />
-                                    <circle cx="25" cy="16" r="1" />
-                                    <rect x="13" y="29" width="18" height="14" rx="2" />
-                                    <line x1="37" y1="30" x2="51" y2="30" />
-                                    <line x1="37" y1="37" x2="51" y2="37" />
-                                    <line x1="37" y1="44" x2="46" y2="44" />
-                                </svg>
-                            </span>
-                            <span class="d-block fw-semibold mt-3" style="color:#2f81f7">R$ @Model.Site</span>
-                            <span class="d-block h5 fw-semibold">Sites institucionais</span>
-                            <span class="servico-linha d-block"></span>
-                            <span class="d-block text-white-50 mx-auto" style="max-width:280px">
-                                A presença digital da sua empresa, com design sob medida e carregamento rápido em qualquer dispositivo.
-                            </span>
-                        </button>
-                    </div>
-
-                    <div class="col-md-4">
-                        <button type="submit" name="tipo" value="loja" class="servico-card">
-                            <span class="servico-circle">
-                                <svg viewBox="0 0 64 64" aria-hidden="true">
-                                    <path d="M8 10h8l6 28h28l6-20H18" />
-                                    <circle cx="26" cy="49" r="4" />
-                                    <circle cx="46" cy="49" r="4" />
-                                </svg>
-                            </span>
-                            <span class="d-block fw-semibold mt-3" style="color:#2f81f7">R$ @Model.LojaVirtual</span>
-                            <span class="d-block h5 fw-semibold">Lojas virtuais</span>
-                            <span class="servico-linha d-block"></span>
-                            <span class="d-block text-white-50 mx-auto" style="max-width:280px">
-                                Venda online com uma loja segura, fácil de gerenciar e pronta para converter visitas em clientes.
-                            </span>
-                        </button>
-                    </div>
-
-                    <div class="col-md-4">
-                        <button type="submit" name="tipo" value="sistema" class="servico-card">
-                            <span class="servico-circle">
-                                <svg viewBox="0 0 64 64" aria-hidden="true">
-                                    <polyline points="22,20 10,32 22,44" />
-                                    <polyline points="42,20 54,32 42,44" />
-                                    <line x1="36" y1="14" x2="28" y2="50" />
-                                </svg>
-                            </span>
-                            <span class="d-block fw-semibold mt-3" style="color:#2f81f7">R$ @Model.SistemaWeb</span>
-                            <span class="d-block h5 fw-semibold">Sistemas web</span>
-                            <span class="servico-linha d-block"></span>
-                            <span class="d-block text-white-50 mx-auto" style="max-width:280px">
-                                Se a sua demanda tem particularidades, desenvolvemos um sistema sob medida para o seu processo.
-                            </span>
-                        </button>
-                    </div>
-
-                </div>
-            </form>
-
-            <p class="mt-5 mb-0">
-                <span class="badge rounded-pill text-bg-dark border border-secondary fw-normal px-4 py-2 fs-6">
-                    Orçamento: <strong class="text-white">R$ @Model.LojaVirtual</strong>
-                </span>
-            </p>
-
+    <div class="orc-head">
+        <button class="orc-back" id="orcBack" type="button">&larr; Anterior</button>
+        <div class="orc-total js-total" aria-label="Total parcial">R$ 0,00</div>
+        <div class="orc-head-right">
+            <span class="orc-count" id="orcCount"></span>
+            <a class="orc-close" href="@Url.Action("Index", "Home")" aria-label="Fechar orçamento">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+            </a>
         </div>
-    </section>
+    </div>
+    <div class="orc-track"><i id="orcProg"></i></div>
+
+    <div class="orc-body" id="orcBody"></div>
 </div>
+
+<script id="orcamento-dados" type="application/json">@Json.Serialize(Model)</script>
+
+@section Scripts {
+    <script src="~/js/orcamento.js" asp-append-version="true"></script>
+}
