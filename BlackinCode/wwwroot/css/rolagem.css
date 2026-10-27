@@ -1,0 +1,22 @@
+﻿html {
+    scroll-snap-type: none; /* o JS controla agora */
+    scroll-padding-top: 0;
+    scroll-behavior: smooth; /* continua valendo para links de âncora do menu */
+}
+
+.snap-section {
+    scroll-snap-align: start;
+}
+
+.snap-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 70px !important;
+    padding-bottom: 20vh !important;
+}
+
+footer {
+    scroll-snap-align: end;
+}
