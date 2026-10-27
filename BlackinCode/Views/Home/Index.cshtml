@@ -1,12 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Black in Code | Criação e desenvolvimento de sites";
 }
+@section Styles {
+    <link rel="stylesheet" href="~/css/rolagem.css" asp-append-version="true" />
+}
 
 <div class="hero-glow text-white vw-100 position-relative start-50 translate-middle-x" data-bs-theme="dark">
-    <section class="container text-center pt-5 pb-4">
-        <span class="badge rounded-pill text-bg-dark border border-secondary fw-normal px-3 py-2 mb-4">
-            Vamos começar? Seu próximo projeto começa aqui
-        </span>
+    <section class="container text-center pt-5 pb-4 snap-section snap-screen">
 
         <h1 class="display-4 fw-bold mb-3 text-white">
             Transformamos ideias em sites que <span class="text-primary">vendem</span>
@@ -16,15 +16,23 @@
             Na <strong class="text-white">Black in Code</strong>, criamos sites, lojas virtuais e sistemas web sob medida.
         </p>
 
+<<<<<<< HEAD
         <a href="/Orcamento" class="btn btn-light btn-lg rounded-pill fw-semibold px-5 py-3 shadow-lg">
             Comece agora
         </a>
+=======
+        <div>
+            <a href="/Orcamento" class="btn btn-light btn-lg rounded-pill fw-semibold px-5 py-3 shadow-lg">
+                Comece agora
+            </a>
+        </div>
+>>>>>>> baa3f1a (Fix: adaptando a home com as sections)
 
         <p class="small text-white-50 mt-4 mb-0">
             Resposta rápida · Sem compromisso · Código limpo e entrega no prazo
         </p>
     </section>
-    <section class="container text-center pb-5" style="padding-top: 20rem;">
+    <section class="container text-center pb-5 snap-section snap-screen">
         <span class="text-primary text-uppercase fw-semibold small" style="letter-spacing:.15em">Sobre a Black in Code</span>
         <h2 class="display-6 fw-bold mt-2 mb-3">Tecnologia com cara de projeto sob medida</h2>
         <p class="text-white-50 mx-auto mb-5" style="max-width:680px">
@@ -57,39 +65,43 @@
         </div>
     </section>
 </div>
-<section class="bg-black text-white vw-100 position-relative start-50 translate-middle-x" data-bs-theme="dark">
+<section class="bg-black text-white vw-100 position-relative start-50 translate-middle-x snap-section" data-bs-theme="dark">
     <div class="row g-0">
 
         <div class="col-md-6">
             <div class="card-zoom position-relative overflow-hidden">
                 <div class="ratio ratio-4x3">
                     <img src="~/Images/Manutenção.jpg" alt="Manutenção de sites" class="object-fit-cover">
-                    </div>
-                    <div class="card-overlay position-absolute bottom-0 start-0 w-100 p-4 p-lg-5">
-                        <span class="badge rounded-pill text-bg-primary text-uppercase mb-3 px-3 py-2">Manutenção</span>
-                        <h3 class="fw-bold">Seu site sempre rápido e seguro</h3>
-                        <p class="mb-0 text-white-50">Atualizações, correções e monitoramento contínuo para o seu site nunca parar.</p>
-                    </div>
+                </div>
+                <div class="card-overlay position-absolute bottom-0 start-0 w-100 p-4 p-lg-5">
+                    <span class="badge rounded-pill text-bg-primary text-uppercase mb-3 px-3 py-2">Manutenção</span>
+                    <h3 class="fw-bold">Seu site sempre rápido e seguro</h3>
+                    <p class="mb-0 text-white-50">Atualizações, correções e monitoramento contínuo para o seu site nunca parar.</p>
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-6">
-                <div class="card-zoom position-relative overflow-hidden">
-                    <div class="ratio ratio-4x3">
-                        <img src="~/Images/Reestruturação.jpg" alt="Reestruturação de sites" class="object-fit-cover">
-                        </div>
-                        <div class="card-overlay position-absolute bottom-0 start-0 w-100 p-4 p-lg-5">
-                            <span class="badge rounded-pill text-bg-light text-uppercase mb-3 px-3 py-2">Reestruturação</span>
-                            <h3 class="fw-bold">Um site novo sobre a base que você já tem</h3>
-                            <p class="mb-0 text-white-50">Modernizamos o design, a arquitetura e o código para ganhar desempenho e conversão.</p>
-                        </div>
-                    </div>
+        <div class="col-md-6">
+            <div class="card-zoom position-relative overflow-hidden">
+                <div class="ratio ratio-4x3">
+                    <img src="~/Images/Reestruturação.jpg" alt="Reestruturação de sites" class="object-fit-cover">
                 </div>
-
+                <div class="card-overlay position-absolute bottom-0 start-0 w-100 p-4 p-lg-5">
+                    <span class="badge rounded-pill text-bg-light text-uppercase mb-3 px-3 py-2">Reestruturação</span>
+                    <h3 class="fw-bold">Um site novo sobre a base que você já tem</h3>
+                    <p class="mb-0 text-white-50">Modernizamos o design, a arquitetura e o código para ganhar desempenho e conversão.</p>
+                </div>
             </div>
+        </div>
 
-            <div class="d-flex flex-wrap justify-content-center gap-3 py-5">
-                <a asp-action="Manutencao" asp-controller="Manutencao" class="btn btn-primary btn-lg text-uppercase fw-semibold px-4">Solicitar manutenção</a>
-                <a asp-action="Reestruturacao" asp-controller="Reestruturacao" class="btn btn-light btn-lg text-uppercase fw-semibold px-4">Solicitar reestruturação</a>
-            </div>
-        </section>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center gap-3 py-5">
+        <a asp-action="Manutencao" asp-controller="Manutencao" class="btn btn-primary btn-lg text-uppercase fw-semibold px-4">Solicitar manutenção</a>
+        <a asp-action="Reestruturacao" asp-controller="Reestruturacao" class="btn btn-light btn-lg text-uppercase fw-semibold px-4">Solicitar reestruturação</a>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/rolagem.js" asp-append-version="true"></script>
+}
