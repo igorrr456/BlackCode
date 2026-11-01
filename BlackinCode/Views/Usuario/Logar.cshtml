@@ -1,29 +1,50 @@
-﻿@model BlackinCode.Models.Usuario
-
-@section Styles {
-    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+@model BlackinCode.Models.Usuario
+@{
+    ViewData["Title"] = "Entrar | Black in Code";
 }
 
+@section Styles {
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+}
 
-<div class="login-container">
-    <h1 class="login-title">Entrar</h1>
+<div class="login-page hero-glow text-white" data-bs-theme="dark">
+    <div class="text-center w-100" style="max-width:420px">
 
-    <form asp-action="Logar" method="post">
-        @Html.AntiForgeryToken()
-        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="login-box card-feature bg-black bg-opacity-50 border border-secondary rounded-4 p-4 p-md-5 mx-auto">
+            <h1 class="h2 fw-bold mb-2">Bem-vindo de volta</h1>
+            <p class="text-white-50 mb-4">Entre com seu e-mail e senha para acessar sua conta.</p>
 
-        <div class="mb-3">
-            <label class="form-label">Endereço de e-mail</label>
-            <input type="email" class="form-control" asp-for="Email" placeholder="Email" required>
-            <span asp-validation-for="Email" class="text-danger"></span>
+            <form asp-action="Logar" method="post" class="text-start" novalidate>
+                <div asp-validation-summary="All" class="text-danger small mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">E-mail</label>
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Seu e-mail" autocomplete="email" required />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Senha" class="form-label">Senha</label>
+                    <input asp-for="Senha" type="password" class="form-control" placeholder="Sua senha" autocomplete="current-password" required />
+                    <span asp-validation-for="Senha" class="text-danger small"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-entrar w-100 rounded-pill fw-semibold py-2">Entrar</button>
+            </form>
+
+            <p class="small text-white-50 mt-4 mb-0">
+                Ainda não tem conta?
+                <a class="login-link" asp-controller="Usuario" asp-action="Cadastrar">Inscreva-se</a>
+            </p>
         </div>
-        <div class="mb-4">
-            <label class="form-label">Senha</label>
-            <input type="password" class="form-control" asp-for="Senha" placeholder="Senha" required>
-            <span asp-validation-for="Senha" class="text-danger"></span>
-        </div>
-        <button type="submit" class="btn btn-login w-100">Entrar</button>
-    </form>
+
+        <p class="small text-white-50 mt-4 mb-0">
+            Black in Code · Sites, lojas virtuais e sistemas web sob medida
+        </p>
+    </div>
 </div>
 
 @section Scripts {
