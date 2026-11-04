@@ -44,7 +44,18 @@ namespace BlackinCode.Models
         {
             new()
             {
-                Id = "servico", Titulo = "Qual serviço você precisa?", Resumo = "Serviço", Base = true,
+                Id = "tipo", Titulo = "O que você precisa?", Resumo = "Objetivo",
+                Dica = "Escolha como podemos ajudar.",
+                Opcoes =
+                {
+                    new() { Id = "manutencao",   Rotulo = "Manutenção",         Valor = 0m, Icone = "manutencao" },
+                    new() { Id = "novo",         Rotulo = "Criar novo projeto", Valor = 0m, Icone = "novo" },
+                    new() { Id = "reestruturar", Rotulo = "Reestruturação",     Valor = 0m, Icone = "reestruturar" }
+                }
+            },
+            new()
+            {
+                Id = "servico", Titulo = "Qual o tipo de projeto?", Resumo = "Serviço", Base = true,
                 Opcoes =
                 {
                     new() { Id = "landing",  Rotulo = "Landing page",           Valor = 1500m,  Icone = "landing" },
@@ -93,15 +104,6 @@ namespace BlackinCode.Models
                     new() { Id = "login", Rotulo = "Login de usuários",      Valor = 2500m, Icone = "lock" },
                     new() { Id = "pagto", Rotulo = "Pagamento online",       Valor = 2000m, Icone = "card" },
                     new() { Id = "admin", Rotulo = "Painel administrativo",  Valor = 3500m, Icone = "dash" }
-                }
-            },
-            new()
-            {
-                Id = "seo", Titulo = "Quer otimização para o Google (SEO)?", Resumo = "SEO",
-                Opcoes =
-                {
-                    new() { Id = "sim", Rotulo = "Sim", Valor = 900m, Icone = "search" },
-                    new() { Id = "nao", Rotulo = "Não", Valor = 0m,   Icone = "x" }
                 }
             },
             new()
