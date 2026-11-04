@@ -34,7 +34,10 @@
         dash: "M4 4h6v9H4z M14 4h6v5h-6z M14 11h6v9h-6z M4 15h6v5H4z",
         search: "M11 4a7 7 0 100 14 7 7 0 000-14z M16 16l5 5",
         clock: "M12 3a9 9 0 100 18 9 9 0 000-18z M12 7v5l3 2",
-        bolt: "M13 2L4 14h7l-1 8 9-12h-7z"
+        bolt: "M13 2L4 14h7l-1 8 9-12h-7z",
+        manutencao: "M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z",
+        reestruturar: "M20 11a8 8 0 10-2.3 5.7 M20 4v7h-7",
+        novo: "M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"
     };
 
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -69,7 +72,8 @@
         const sel = answers[step.id] || [];
         const multi = step.multipla;
         const opts = step.opcoes.map(o => {
-            const p = step.base ? money(o.valor) : (o.valor ? "+ " + money(o.valor) : "Incluso");
+            const semPreco = step.opcoes.every(x => !x.valor);
+            const p = semPreco ? "" : step.base ? money(o.valor) : (o.valor ? "+ " + money(o.valor) : "Incluso");
             return `<button type="button" class="orc-opt" role="${multi ? "checkbox" : "radio"}" aria-checked="${sel.includes(o.id)}" data-id="${esc(o.id)}">
                 <span class="orc-orb">${icon(o.icone)}</span>
                 <span class="orc-lbl">${esc(o.rotulo)}</span><span class="orc-bar"></span><span class="orc-price">${p}</span>
@@ -167,6 +171,12 @@
             tween(parcial());
         }
     }
+
+    // Logo e "Sair" levam pra Home; se já tem respostas, confirma antes de perder o orçamento.
+    root.querySelectorAll("[data-sair]").forEach(a => a.addEventListener("click", e => {
+        const temResposta = Object.values(answers).some(v => v.length);
+        if (temResposta && !confirm("Se sair agora, você perde o orçamento atual. Deseja sair?")) e.preventDefault();
+    }));
 
     backBtn.addEventListener("click", back);
     bodyEl.addEventListener("click", e => {
