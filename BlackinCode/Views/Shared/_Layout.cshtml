@@ -1,34 +1,52 @@
 ﻿@{
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"] - BlackinCode</title>
-        <script type="importmap"></script>
-        <link rel="icon" type="image/png" sizes="32x32" href="~/favicon.png">
+    var controllerAtual = ViewContext.RouteData.Values["controller"]?.ToString();
+    var acaoAtual = ViewContext.RouteData.Values["action"]?.ToString();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BlackinCode</title>
+    <script type="importmap"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="~/favicon.png">
 
 
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/BlackinCode.styles.css" asp-append-version="true" />
-        @RenderSection("Styles", required: false)
-    </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-expand-sm navbar-dark fixed-top header-transparente" data-bs-theme="dark">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BlackinCode.styles.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top header-transparente" data-bs-theme="dark">
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start w-100">
                     <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                         <img src="~/Images/Logobc.png" alt="Logo" style="height: 48px;">
                     </a>
-                             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 nav-gradient">
-                                    <li><a asp-action="Index" asp-controller="Home" class="nav-link px-2">Home</a></li>
-                                    <li><a asp-controller="Servicos" asp-action="Servicos" class="nav-link px-2">Serviços</a></li>
-                                    <li><a asp-controller="Projetos" asp-action="Projetos" class="nav-link px-2">Projetos</a></li>
-                                    <li><a asp-controller="Sobre" asp-action="Sobre" class="nav-link px-2">Sobre</a></li>
-                                    <li><a asp-controller="Contato" asp-action="Contato" class="nav-link px-2">Contato</a></li>
-                               </ul>
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 nav-gradient">
+                        @if (!(controllerAtual == "Home" && acaoAtual == "Index"))
+                        {
+                            <li><a asp-action="Index" asp-controller="Home" class="nav-link px-2">Home</a></li>
+                        }
+                        @if (controllerAtual != "Servicos")
+                        {
+                            <li><a asp-controller="Servicos" asp-action="Servicos" class="nav-link px-2">Serviços</a></li>
+                        }
+                        @if (controllerAtual != "Projetos")
+                        {
+                            <li><a asp-controller="Projetos" asp-action="Projetos" class="nav-link px-2">Projetos</a></li>
+                        }
+                        @if (controllerAtual != "Sobre")
+                        {
+                            <li><a asp-controller="Sobre" asp-action="Sobre" class="nav-link px-2">Sobre</a></li>
+                        }
+                        @if (controllerAtual != "Contato")
+                        {
+                            <li><a asp-controller="Contato" asp-action="Contato" class="nav-link px-2">Contato</a></li>
+                        }
+                    </ul>
                     <div class="text-end d-flex align-items-center">
                         @if (User.Identity != null && User.Identity.IsAuthenticated)
                         {
@@ -54,84 +72,83 @@
                     </div>
                 </div>
             </div>
-            </nav>
-        </header>
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <footer class="bg-black text-white border-top border-secondary" data-bs-theme="dark">
+        <div class="container py-5">
+            <div class="row g-4">
+
+
+                <div class="col-lg-4">
+                    <a class="d-inline-block fw-bold fs-4 text-white text-decoration-none mb-3" asp-controller="Home" asp-action="Index">
+                        Black in Code
+                    </a>
+                    <p class="text-white-50 mb-4">
+                        Criação e desenvolvimento de sites, lojas virtuais e sistemas web sob medida,
+                        com código limpo, desempenho e suporte de verdade.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="#" class="btn btn-sm btn-instagram text-white fw-medium px-3">Instagram</a>
+                        <a href="#" class="btn btn-sm btn-linkedin text-white fw-medium px-3">LinkedIn</a>
+                        <a href="#" class="btn btn-sm btn-github text-white fw-medium px-3">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h6 class="text-uppercase small fw-semibold mb-3">Navegação</h6>
+                    <ul class="list-unstyled mb-0 d-grid gap-2">
+                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Index">Início</a></li>
+                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#sobre">Sobre nós</a></li>
+                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#servicos">Serviços</a></li>
+                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h6 class="text-uppercase small fw-semibold mb-3">Serviços</h6>
+                    <ul class="list-unstyled mb-0 d-grid gap-2">
+                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Sites institucionais</a></li>
+                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Lojas virtuais</a></li>
+                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Sistemas web</a></li>
+                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Manutenção</a></li>
+                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Reestruturação</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3" id="contato">
+                    <h6 class="text-uppercase small fw-semibold mb-3">Contato</h6>
+                    <ul class="list-unstyled mb-0 d-grid gap-2 text-white-50">
+                        <li>contato@blackincode.com.br</li>
+                        <li>(00) 00000-0000</li>
+                        <li>Cidade - SP, Brasil</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-4">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 small text-white-50">
+                <div class="text-center text-md-start">
+                    &copy; @DateTime.Now.Year Black in Code. Todos os direitos reservados.<br class="d-md-none">
+                    <span class="ms-md-2">CNPJ 00.000.000/0001-00</span>
+                </div>
+                <div class="d-flex gap-3">
+                    <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a>
+                    <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Termos de Uso</a>
+                </div>
+            </div>
         </div>
-
-                   
-                    <footer class="bg-black text-white border-top border-secondary" data-bs-theme="dark">
-                        <div class="container py-5">
-                            <div class="row g-4">
-
-                             
-                                <div class="col-lg-4">
-                                    <a class="d-inline-block fw-bold fs-4 text-white text-decoration-none mb-3" asp-controller="Home" asp-action="Index">
-                                        Black in Code
-                                    </a>
-                                    <p class="text-white-50 mb-4">
-                                        Criação e desenvolvimento de sites, lojas virtuais e sistemas web sob medida,
-                                        com código limpo, desempenho e suporte de verdade.
-                                    </p>
-                                    <div class="d-flex flex-wrap gap-2">
-                                        <a href="#" class="btn btn-sm btn-instagram text-white fw-medium px-3">Instagram</a>
-                                        <a href="#" class="btn btn-sm btn-linkedin text-white fw-medium px-3">LinkedIn</a>
-                                        <a href="#" class="btn btn-sm btn-github text-white fw-medium px-3">GitHub</a>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-2 offset-lg-1">
-                                    <h6 class="text-uppercase small fw-semibold mb-3">Navegação</h6>
-                                    <ul class="list-unstyled mb-0 d-grid gap-2">
-                                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Index">Início</a></li>
-                                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#sobre">Sobre nós</a></li>
-                                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#servicos">Serviços</a></li>
-                                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#contato">Contato</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-6 col-lg-2">
-                                    <h6 class="text-uppercase small fw-semibold mb-3">Serviços</h6>
-                                    <ul class="list-unstyled mb-0 d-grid gap-2">
-                                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Sites institucionais</a></li>
-                                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Lojas virtuais</a></li>
-                                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Sistemas web</a></li>
-                                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Manutenção</a></li>
-                                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Reestruturação</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-lg-3" id="contato">
-                                    <h6 class="text-uppercase small fw-semibold mb-3">Contato</h6>
-                                    <ul class="list-unstyled mb-0 d-grid gap-2 text-white-50">
-                                        <li>contato@blackincode.com.br</li>
-                                        <li>(00) 00000-0000</li>
-                                        <li>Cidade - SP, Brasil</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <hr class="border-secondary my-4">
-
-                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 small text-white-50">
-                                <div class="text-center text-md-start">
-                                    &copy; @DateTime.Now.Year Black in Code. Todos os direitos reservados.<br class="d-md-none">
-                                    <span class="ms-md-2">CNPJ 00.000.000/0001-00</span>
-                                </div>
-                                <div class="d-flex gap-3">
-                                    <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Privacy">Política de Privacidade</a>
-                                    <a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Termos de Uso</a>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        @await RenderSectionAsync("Scripts", required: false)
-    </body>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
 </html>
-}
