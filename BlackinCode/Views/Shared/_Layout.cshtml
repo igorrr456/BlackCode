@@ -104,23 +104,23 @@
                 <div class="col-6 col-lg-2 offset-lg-1">
                     <h6 class="text-uppercase small fw-semibold mb-3">Navegação</h6>
                     <ul class="list-unstyled mb-0 d-grid gap-2">
-                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Index">Início</a></li>
-                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#sobre">Sobre nós</a></li>
-                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#servicos">Serviços</a></li>
-                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#contato">Contato</a></li>
-                    </ul>
-                </div>
+<li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Index">Início</a></li>
+<li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Sobre" asp-action="Sobre" asp-fragment="">Sobre nós</a></li>
+<li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Orcamento" asp-action="Index" asp-fragment="">Orçamento</a></li>
+<li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Contato" asp-action="Contato" asp-fragment="">Contato</a></li>
+</ul>
+</div>
 
-                <div class="col-6 col-lg-2">
-                    <h6 class="text-uppercase small fw-semibold mb-3">Serviços</h6>
-                    <ul class="list-unstyled mb-0 d-grid gap-2">
-                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Sites institucionais</a></li>
-                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Lojas virtuais</a></li>
-                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Sistemas web</a></li>
-                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Manutenção</a></li>
-                        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" href="#">Reestruturação</a></li>
-                    </ul>
-                </div>
+<div class="col-6 col-lg-2">
+    <h6 class="text-uppercase small fw-semibold mb-3">Serviços</h6>
+    <ul class="list-unstyled mb-0 d-grid gap-2">
+        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Index" asp-fragment="servicos">Sites institucionais</a></li>
+        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Index" asp-fragment="servicos">Lojas virtuais</a></li>
+        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Index" asp-fragment="servicos">Sistemas web</a></li>
+        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Index" asp-fragment="servicos">Manutenção</a></li>
+        <li><a class="link-secondary link-underline-opacity-0 link-underline-opacity-100-hover" asp-controller="Home" asp-action="Index" asp-fragment="servicos">Reestruturação</a></li>
+    </ul>
+</div>
 
                 <div class="col-lg-3" id="contato">
                     <h6 class="text-uppercase small fw-semibold mb-3">Contato</h6>
