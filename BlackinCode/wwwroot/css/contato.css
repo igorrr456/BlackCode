@@ -1,0 +1,138 @@
+/* ===== Black in Code - Contato ===== */
+:root {
+    --bic-bg: #0d111a;
+    --bic-blue: #0d6efd;
+    --bic-border: rgba(255, 255, 255, 0.25);
+    --bic-muted: #aab2c0;
+}
+
+/* Evita barra de rolagem horizontal por causa do 100vw */
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bic-bg);
+}
+
+/* ---------- PÁGINA FULL-SCREEN (sem bordas) ---------- */
+.contact-page {
+    position: relative;
+    overflow: hidden;
+
+    /* sai do container do layout e ocupa a largura toda da tela */
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    /* fallback; o JS no cshtml ajusta a altura exata */
+    min-height: calc(100vh - 72px);
+    min-height: calc(100dvh - 72px);
+
+    display: flex;
+    align-items: center;
+    background: var(--bic-bg);
+}
+
+.contact-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Degradê: escuro na esquerda (texto), some pra direita + fade embaixo */
+.contact-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(13, 17, 26, 0.95) 0%, rgba(13, 17, 26, 0.65) 45%, rgba(13, 17, 26, 0.2) 100%),
+        linear-gradient(180deg, rgba(13, 17, 26, 0.5) 0%, rgba(13, 17, 26, 0) 25%, rgba(13, 17, 26, 0) 70%, rgba(13, 17, 26, 0.9) 100%);
+    pointer-events: none;
+}
+
+.contact-content {
+    position: relative;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* ---------- TÍTULO ---------- */
+.contact-head {
+    margin-bottom: 3rem;
+}
+
+.contact-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    letter-spacing: 0.08em;
+}
+
+.contact-subtitle {
+    color: var(--bic-muted);
+    font-size: 1rem;
+}
+
+/* ---------- CARDS ---------- */
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid var(--bic-border);
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(5, 7, 11, 0.88) 0%, rgba(11, 15, 23, 0.88) 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+    border-color: var(--bic-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(13, 110, 253, 0.2);
+}
+
+.card-icon {
+    color: var(--bic-blue);
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: 1.25rem;
+}
+
+.card-title-bic {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.card-value {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+.card-hint {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--bic-muted);
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 767.98px) {
+    .contact-page {
+        align-items: flex-start;
+    }
+
+    .contact-head {
+        margin-bottom: 2rem;
+    }
+
+    .contact-overlay {
+        background: linear-gradient(180deg, rgba(13, 17, 26, 0.85) 0%, rgba(13, 17, 26, 0.7) 100%);
+    }
+}
