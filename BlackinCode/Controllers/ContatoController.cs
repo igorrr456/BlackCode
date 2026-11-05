@@ -4,7 +4,7 @@ namespace BlackinCode.Controllers
 {
     public class ContatoController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Contato()
         {
             return View();
         }

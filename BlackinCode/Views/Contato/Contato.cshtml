@@ -1,0 +1,86 @@
+@{
+    ViewData["Title"] = "Contato";
+}
+
+<link rel="stylesheet" href="~/css/contato.css" />
+
+<section class="contact-page text-white" id="contactPage">
+    <div class="contact-bg" style="background-image: url('@Url.Content("~/Images/Contatoimage.jpg")');"></div>
+    <div class="contact-overlay"></div>
+
+    <div class="container position-relative contact-content">
+
+        <div class="contact-head">
+            <h1 class="fw-bold text-uppercase mb-2 contact-title">Contato</h1>
+            <p class="mb-0 contact-subtitle">Fale com a equipe Black in Code</p>
+        </div>
+
+        <div class="row g-4 contact-cards">
+
+            <div class="col-md-6 col-lg-3">
+                <div class="contact-card h-100">
+                    <span class="card-icon"><i class="bi bi-building"></i></span>
+                    <h3 class="card-title-bic">Empresa</h3>
+                    <p class="card-value">Black in Code</p>
+                    <p class="card-hint">Sites, lojas virtuais e sistemas web sob medida.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="contact-card h-100">
+                    <span class="card-icon"><i class="bi bi-envelope"></i></span>
+                    <h3 class="card-title-bic">E-mail</h3>
+                    <p class="card-value">contato@blackincode.com.br</p>
+                    <p class="card-hint">Resposta em até 24h.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="contact-card h-100">
+                    <span class="card-icon"><i class="bi bi-whatsapp"></i></span>
+                    <h3 class="card-title-bic">WhatsApp</h3>
+                    <p class="card-value">(11) 00000-0000</p>
+                    <p class="card-hint">Seg–Sex, 8h às 18h.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="contact-card h-100">
+                    <span class="card-icon"><i class="bi bi-headset"></i></span>
+                    <h3 class="card-title-bic">Suporte</h3>
+                    <p class="card-value">suporte@blackincode.com.br</p>
+                    <p class="card-hint">Suporte de verdade, depois da entrega.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    // Faz a seção começar colada no navbar e ocupar o resto da tela,
+    // empurrando o footer pra baixo da dobra.
+    (function () {
+        var section = document.getElementById('contactPage');
+        if (!section) return;
+
+        function ajustar() {
+            var nav = document.querySelector('header') || document.querySelector('nav');
+            var navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
+
+            // zera o ajuste anterior pra medir certo
+            section.style.marginTop = '0px';
+            var topAtual = section.getBoundingClientRect().top;
+            var gap = topAtual - navBottom;
+
+            // remove o espaço entre o navbar e a imagem
+            if (gap > 0) section.style.marginTop = (-gap) + 'px';
+
+            section.style.minHeight = Math.max(window.innerHeight - navBottom, 520) + 'px';
+        }
+
+        ajustar();
+        window.addEventListener('resize', ajustar);
+        window.addEventListener('load', ajustar);
+    })();
+</script>
