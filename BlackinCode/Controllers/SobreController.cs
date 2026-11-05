@@ -4,7 +4,7 @@ namespace BlackinCode.Controllers
 {
     public class SobreController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Sobre()
         {
             return View();
         }
