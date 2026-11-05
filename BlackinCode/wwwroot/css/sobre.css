@@ -1,0 +1,406 @@
+/* ===== Black in Code - Sobre ===== */
+:root {
+    --bic-bg: #0d111a;
+    --bic-bg-alt: #0a0e16;
+    --bic-blue: #0d6efd;
+    --bic-border: rgba(255, 255, 255, 0.25);
+    --bic-muted: #aab2c0;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bic-bg);
+}
+
+.text-accent {
+    color: var(--bic-blue);
+}
+
+/* ---------- HERO (tela cheia, sem bordas) ---------- */
+.about-hero {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    min-height: calc(100vh - 72px);
+    min-height: calc(100dvh - 72px);
+    display: flex;
+    align-items: center;
+    background: var(--bic-bg);
+}
+
+.about-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('../Images/Sobreimage.jpg'); /* css/ -> Images/ */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(13, 17, 26, 0.95) 0%, rgba(13, 17, 26, 0.7) 50%, rgba(13, 17, 26, 0.25) 100%),
+        linear-gradient(180deg, rgba(13, 17, 26, 0.5) 0%, rgba(13, 17, 26, 0) 25%, rgba(13, 17, 26, 0) 70%, var(--bic-bg) 100%);
+}
+
+.about-hero-content {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+}
+
+.about-tag {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.9rem;
+    border: 1px solid var(--bic-border);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bic-muted);
+}
+
+.about-title {
+    max-width: 760px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+}
+
+.about-lead {
+    max-width: 600px;
+    margin: 1.25rem 0 0;
+    color: var(--bic-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.about-scroll {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.5rem;
+    opacity: 0.7;
+    animation: bounce 1.8s infinite;
+    text-decoration: none;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 8px); }
+}
+
+/* ---------- SEÇÕES ---------- */
+.about-section {
+    padding: 5rem 0;
+    background: var(--bic-bg);
+}
+
+.about-section-alt {
+    background: var(--bic-bg-alt);
+}
+
+.about-h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.25rem;
+}
+
+.about-text {
+    color: var(--bic-muted);
+    line-height: 1.8;
+}
+
+/* ---------- CARDS ---------- */
+.about-card {
+    padding: 1.75rem;
+    border: 1px solid var(--bic-border);
+    border-radius: 16px;
+    background: linear-gradient(180deg, #05070b 0%, #0b0f17 100%);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-card:hover {
+    border-color: var(--bic-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(13, 110, 253, 0.15);
+}
+
+.about-num {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--bic-blue);
+}
+
+.about-card-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.about-card-text {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--bic-muted);
+}
+
+/* Estatísticas */
+.stat-card {
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.stat-number {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--bic-blue);
+}
+
+.stat-label {
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+    color: var(--bic-muted);
+}
+
+/* Processo */
+.about-step {
+    height: 100%;
+    padding: 1.5rem;
+    border-left: 2px solid rgba(13, 110, 253, 0.4);
+}
+
+.about-step-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    background: rgba(13, 110, 253, 0.12);
+    color: var(--bic-blue);
+    font-size: 1.4rem;
+}
+
+/* Tecnologias */
+.about-chip {
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--bic-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #fff;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.about-chip:hover {
+    border-color: var(--bic-blue);
+    color: var(--bic-blue);
+}
+
+/* CTA */
+.about-cta {
+    padding: 3.5rem 1.5rem;
+    border: 1px solid var(--bic-border);
+    border-radius: 24px;
+    background:
+        radial-gradient(ellipse at 50% 120%, rgba(22, 60, 120, 0.7) 0%, rgba(13, 17, 26, 0) 70%),
+        linear-gradient(180deg, #05070b 0%, #0b0f17 100%);
+}
+
+/* ---------- ANIMAÇÃO DE ENTRADA ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .about-scroll { animation: none; }
+}
+
+/* ---------- MOCKUP DO HERO ---------- */
+.mock-wrap {
+    position: relative;
+    max-width: 520px;
+    margin-left: auto;
+    padding: 1.5rem 0;
+}
+
+.mock-window {
+    border: 1px solid var(--bic-border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(5, 7, 11, 0.92) 0%, rgba(11, 15, 23, 0.92) 100%);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 20px 60px rgba(13, 110, 253, 0.2);
+    transform: perspective(1200px) rotateY(-6deg) rotateX(2deg);
+}
+
+.mock-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mock-bar span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.mock-bar em {
+    margin-left: 0.75rem;
+    padding: 0.15rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    font-style: normal;
+    font-size: 0.75rem;
+    color: var(--bic-muted);
+}
+
+.mock-body {
+    padding: 1.25rem;
+}
+
+.mock-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+}
+
+.mock-nav i {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--bic-blue);
+}
+
+.mock-nav div {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mock-nav b {
+    width: 36px;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.mock-hero {
+    margin-bottom: 1.75rem;
+}
+
+.mock-line {
+    height: 8px;
+    width: 70%;
+    margin-bottom: 0.6rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.mock-line-lg {
+    height: 16px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.mock-line-lg.short {
+    width: 60%;
+    background: var(--bic-blue);
+}
+
+.mock-btn {
+    width: 110px;
+    height: 30px;
+    margin-top: 1rem;
+    border-radius: 999px;
+    background: #fff;
+}
+
+.mock-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.mock-cards div {
+    height: 70px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.mock-cards div:first-child {
+    border-color: var(--bic-blue);
+}
+
+.mock-badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--bic-border);
+    border-radius: 999px;
+    background: rgba(5, 7, 11, 0.9);
+    backdrop-filter: blur(6px);
+    font-size: 0.8rem;
+    color: #fff;
+    white-space: nowrap;
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+.mock-badge i {
+    color: var(--bic-blue);
+}
+
+.mock-badge-1 { top: 0; left: -1.5rem; }
+.mock-badge-2 { top: 45%; right: -1rem; animation-delay: 1s; }
+.mock-badge-3 { bottom: 0; left: 2rem; animation-delay: 2s; }
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mock-badge { animation: none; }
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 767.98px) {
+    .about-section { padding: 3.5rem 0; }
+
+    .about-hero { align-items: flex-start; }
+
+    .about-hero-overlay {
+        background: linear-gradient(180deg, rgba(13, 17, 26, 0.85) 0%, rgba(13, 17, 26, 0.75) 100%);
+    }
+}
