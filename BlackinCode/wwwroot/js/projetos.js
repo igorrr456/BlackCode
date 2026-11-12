@@ -2,11 +2,11 @@
     var itens = document.querySelectorAll('.reveal');
     if (!itens.length) return;
 
-    // Sem suporte ou com "reduzir movimento": mostra tudo direto
+    
     var reduzir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!('IntersectionObserver' in window) || reduzir) return;
 
-    document.body.classList.add('js-reveal');   // só esconde os cards se o JS estiver rodando
+    document.body.classList.add('js-reveal');   
 
     var obs = new IntersectionObserver(function (entradas) {
         entradas.forEach(function (e) {

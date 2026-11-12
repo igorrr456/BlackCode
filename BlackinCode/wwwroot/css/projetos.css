@@ -1,4 +1,5 @@
-﻿.projetos-page {
+﻿
+.projetos-page {
 	color: #fff;
 	background-color: #000;
 	background-image: radial-gradient(75% 520px at 50% 0%, rgba(88, 96, 255, .42), transparent 75%), radial-gradient(45% 420px at 100% 38%, rgba(56, 139, 253, .16), transparent 75%), radial-gradient(45% 420px at 0% 68%, rgba(124, 108, 255, .16), transparent 75%), radial-gradient(60% 380px at 50% 100%, rgba(56, 139, 253, .18), transparent 75%);
@@ -29,6 +30,7 @@
 	gap: 3rem;
 }
 
+/* ---------- Card horizontal ---------- */
 .project-row {
 	border-radius: 2rem;
 	padding: 1px;
@@ -52,7 +54,7 @@
 
 .project-inner {
 	display: grid;
-	grid-template-columns: 1fr 1fr; /* imagem | texto */
+	grid-template-columns: 1fr 1fr; 
 	min-height: 380px;
 	overflow: hidden;
 	border-radius: calc(2rem - 1px);
@@ -62,6 +64,7 @@
 .projetos-lista .project-row:nth-child(even) .project-media {
 	order: 2;
 }
+
 
 .project-media {
 	position: relative;
@@ -98,7 +101,7 @@
 	transition: transform 1s ease;
 }
 
-/* ---------- Texto ---------- */
+
 .project-body {
 	display: flex;
 	flex-direction: column;
