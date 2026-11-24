@@ -1,4 +1,12 @@
-﻿.projetos-page {
+﻿
+/* =====================================================================
+   PÁGINA DE PROJETOS  (substitui TODOS os blocos anteriores de projetos
+   no site.css: .marquee, .project-card, .project-tile, .hero-glow da página)
+   Layout próprio (CSS grid): não depende da versão do Bootstrap.
+   ===================================================================== */
+
+/* Fundo contínuo: brilho no topo (atrás do header) que desce pela página */
+.projetos-page {
     color: #fff;
     background-color: #000;
     background-image: radial-gradient(75% 520px at 50% 0%, rgba(88, 96, 255, .42), transparent 75%), radial-gradient(45% 420px at 100% 38%, rgba(56, 139, 253, .16), transparent 75%), radial-gradient(45% 420px at 0% 68%, rgba(124, 108, 255, .16), transparent 75%), radial-gradient(60% 380px at 50% 100%, rgba(56, 139, 253, .18), transparent 75%);
@@ -29,6 +37,7 @@
     gap: 3rem;
 }
 
+/* ---------- Card horizontal ---------- */
 .project-row {
     border-radius: 2rem;
     padding: 1px;
@@ -52,17 +61,18 @@
 
 .project-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr; /* imagem | texto */
     min-height: 380px;
     overflow: hidden;
     border-radius: calc(2rem - 1px);
     background: radial-gradient(60% 70% at 100% 100%, rgba(88, 96, 255, .30), transparent 70%), #05070d;
 }
-
+/* cards pares: imagem à direita */
 .projetos-lista .project-row:nth-child(even) .project-media {
     order: 2;
 }
 
+/* ---------- Imagem ---------- */
 .project-media {
     position: relative;
     display: block;
@@ -98,6 +108,7 @@
     transition: transform 1s ease;
 }
 
+/* ---------- Texto ---------- */
 .project-body {
     display: flex;
     flex-direction: column;
@@ -192,6 +203,7 @@
     transform: translateX(6px);
 }
 
+/* ---------- Entrada ao rolar (só se o JS carregar) ---------- */
 .js-reveal .reveal {
     opacity: 0;
     transition: opacity .8s ease, transform .8s ease;
